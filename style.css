@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.game-container {
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.player-info {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    border: 3px solid transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.cell:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+}
+
+.cell.active {
+    background-color: #4e54c8;
+    color: #fff;
+    border-color: #764ba2;
+}
+
+.cell.winning {
+    background-color: #00c6ff;
+    color: #fff;
+    border-color: #00f260;
+    animation: blink 0.8s infinite alternate;
+}
+
+@keyframes blink {
+    0% { background-color: #00c6ff; }
+    100% { background-color: #00f260; }
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    background: #4e54c8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #6c63ff;
+}
+
+button:active {
+    background: #3b40ab;
+}
+
+.game-controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+label {
+    font-size: 1rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type="checkbox"] {
+    margin-left: 10px;
+}
+
+#winner-message {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    animation: fadeIn 0.5s ease;
+}
+
+.winner-message.show {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#winner-text {
+    font-weight: bold;
+    color: #00ff99;
+}
